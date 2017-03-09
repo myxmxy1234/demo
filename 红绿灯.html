@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .red{
+        background:red;
+    }
+    .green{
+        background: green;
+    }
+    #demo{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+
+<div id="demo" class="red"></div>
+<script>
+    var demo = document.getElementById('demo');
+
+         (function reset(){
+             setTimeout(function(){
+                 demo.className = 'green';
+                 console.log('green');
+                 setTimeout(function(){
+                     demo.className = 'red'; 
+                     console.log('red');   
+                     setTimeout(reset,0);
+                },3000)
+             },3000)
+         })()
+</script>
+</body>
+</html>
